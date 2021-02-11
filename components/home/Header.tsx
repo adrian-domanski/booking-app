@@ -3,9 +3,13 @@ import {
   FormGroup,
   Input,
   Label,
+  Button,
   StyledDatePicker,
   StyledHeader,
 } from '../../styles/pages';
+import { registerLocale } from 'react-datepicker';
+import pl from 'date-fns/locale/pl';
+registerLocale('pl', pl);
 
 import 'react-datepicker/dist/react-datepicker.css';
 
@@ -50,9 +54,15 @@ const Header = () => {
         </h3>
       </div>
       <div
-        className='bg-white mt-8 rounded-lg shadow-2xl py-8 px-10'
+        className='bg-white mt-8 rounded-lg shadow-2xl py-8 px-10 flex flex-col mb-12'
         id='searchBar'
       >
+        <img
+          src='/img/icons/pin.png'
+          alt='znacznik'
+          className='block w-8 mx-auto'
+        />
+        <h1 className='text-center mt-2 mb-5 text-2xl'>Gdzie chesz jechać?</h1>
         <form>
           <FormGroup>
             <Input id='city' type='text' autoFocus={true} />
@@ -62,20 +72,42 @@ const Header = () => {
             <StyledDatePicker
               id='departureDate'
               type='text'
+              locale='pl'
+              autoFocus={true}
+              selected={departureDate}
+              onChange={(date) => setDepartureDate(date)}
+            />
+            <Label
+              htmlFor='departureDate'
+              className={`${departureDate ? 'selected-date' : ''}`}
+            >
+              Data wyjazdu
+            </Label>
+          </FormGroup>
+          <FormGroup>
+            <StyledDatePicker
+              id='arrivalDate'
+              type='text'
+              locale='pl'
               autoFocus={true}
               selected={arrivalDate}
               onChange={(date) => setArrivalDate(date)}
             />
-            <Label htmlFor='departureDate'>Data wyjazdu</Label>
-          </FormGroup>
-          <FormGroup>
-            <Input id='arrivalDate' type='text' autoFocus={true} />
-            <Label htmlFor='arrivalDate'>Data przyjazdu</Label>
+            <Label
+              htmlFor='arrivalDate'
+              className={`${arrivalDate ? 'selected-date' : ''}`}
+            >
+              Data przyjazdu
+            </Label>
           </FormGroup>
           <FormGroup>
             <Input id='guestCount' type='number' autoFocus={true} />
-            <Label htmlFor='departureDate'>Liczba gości</Label>
+            <Label htmlFor='guestCount'>Liczba gości</Label>
           </FormGroup>
+          <Button type='submit'>
+            Szukaj
+            {/* <i className='fas fa-search'></i> */}
+          </Button>
         </form>
       </div>
     </StyledHeader>

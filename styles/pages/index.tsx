@@ -20,6 +20,13 @@ export const StyledHeader = styled.header`
     color: #667eea;
   }
 
+  .selected-date {
+    font-size: 0.75rem;
+    transition: all 0.2s ease-out;
+    top: -0.1rem !important;
+    color: #667eea;
+  }
+
   .label {
     transition: all 0.2s ease-out;
     top: 0.6rem;
@@ -52,3 +59,12 @@ export const Label = styled.label.attrs({
   className:
     'label absolute mb-0 -mt-3 pt-4 leading-tighter text-gray-400 text-base cursor-text',
 })``;
+
+export const Button = styled.button.attrs({
+  className:
+    'bg-theme text-white p-3 w-full rounded transition-colors hover:bg-themeDarker',
+})`
+  &:hover {
+    background-color: #9487cf;
+  }
+`;
