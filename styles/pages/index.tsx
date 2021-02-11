@@ -1,5 +1,6 @@
 import styled from 'styled-components';
 import DatePicker from 'react-datepicker';
+import tw from 'twin.macro';
 
 export const StyledHeader = styled.header`
   background: url('/img/home-header.png');
@@ -40,7 +41,7 @@ export const StyledHeader = styled.header`
 `;
 
 export const FormGroup = styled.div.attrs({
-  className: 'mb-4 relative',
+  className: 'mb-4 relative ',
 })``;
 
 export const Input = styled.input.attrs({
@@ -68,3 +69,23 @@ export const Button = styled.button.attrs({
     background-color: #9487cf;
   }
 `;
+
+export const CloseToYouGrid = tw.div`grid-cols-3 grid gap-3`;
+
+export const CloseToYouGridItem = styled.div.attrs({
+  className: 'justify-center items-center flex flex-col',
+})``;
+
+export const CloseToYouImg = styled.img.attrs({
+  className: 'rounded-xl h-20 w-20 object-cover',
+})``;
+
+export const ContentGroup = styled.div.attrs({
+  className: 'flex flex-col text-center',
+})``;
+
+export const CloseToYouItemTitle = styled.h3.attrs({
+  className: 'font-bold mt-1',
+})``;
+
+export const CloseToYouItemSubTitle = tw.h3`opacity-80`;

@@ -36,7 +36,6 @@ const Header = () => {
     window.addEventListener('load', function () {
       var inputs = document.getElementsByClassName('input');
       for (var i = 0; i < inputs.length; i++) {
-        console.log('looped');
         inputs[i].addEventListener('keyup', function () {
           toggleInputContainer(this);
         });
@@ -44,8 +43,9 @@ const Header = () => {
       }
     });
   }, []);
+
   return (
-    <StyledHeader className='py-28 px-10'>
+    <StyledHeader className='py-28 px-10 relative mb-10'>
       <div className='text-center text-white'>
         <h1 className='text-4xl font-bold'>Serdecznie witamy</h1>
         <h2 className='font-bold text-2xl'>na portalu Gościnni.pl</h2>
@@ -110,6 +110,7 @@ const Header = () => {
           </Button>
         </form>
       </div>
+      <i className='fas fa-chevron-down absolute bottom-0 left-1/2 text-6xl text-gray-300 hover:text-gray-800 transition-colors transform -translate-x-1/2'></i>
     </StyledHeader>
   );
 };
