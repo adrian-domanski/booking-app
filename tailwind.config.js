@@ -1,3 +1,5 @@
+const plugin = require('tailwindcss/plugin');
+
 module.exports = {
   purge: [],
   purge: [
@@ -12,12 +14,37 @@ module.exports = {
       colors: {
         theme: '#9f91d8',
         themeDarker: '#8477bc',
+        themeBlue: '#7c72d0',
+        themeBlueDarker: '#59519a',
         transparent: 'transparent',
       },
     },
   },
   variants: {
-    extend: {},
+    extend: {
+      padding: ['important'],
+      backgroundColor: ['important'],
+      fontSize: ['important'],
+      height: ['important'],
+      width: ['important'],
+      margin: ['important'],
+      textAlign: ['important'],
+      textColor: ['important'],
+      borderRadius: ['important'],
+      display: ['important'],
+      flex: ['important'],
+    },
   },
-  plugins: [],
+  plugins: [
+    plugin(function ({ addVariant }) {
+      addVariant('important', ({ container }) => {
+        container.walkRules((rule) => {
+          rule.selector = `.\\!${rule.selector.slice(1)}`;
+          rule.walkDecls((decl) => {
+            decl.important = true;
+          });
+        });
+      });
+    }),
+  ],
 };

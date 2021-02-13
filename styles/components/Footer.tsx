@@ -1,4 +1,6 @@
 import styled from 'styled-components';
+import { Separator } from './utils';
+import tw from 'twin.macro';
 
 export const StyledFooter = styled.footer`
   background-color: #7c72d0;
@@ -30,3 +32,5 @@ export const NavListItem = styled.li``;
 export const NavLink = styled.a.attrs({
   className: 'text-lg opacity-80 hover:opacity-100 transition-opacit',
 })``;
+
+export const FooterSeparator = tw(Separator)`my-12`;

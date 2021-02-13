@@ -12,8 +12,15 @@ const GlobalStyles = createGlobalStyle`
     box-sizing: border-box;
   }
 
+  html {
+    scroll-behavior: smooth;
+    scroll-padding-top: 65px;
+  }
+
   body {
     font-family: 'Titillium Web', sans-serif;
+    /* background-image: url("/img/bg.jpg");
+    background-repeat: no-repeat; */
   }
 `;
 
