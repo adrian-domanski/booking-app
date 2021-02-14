@@ -7,6 +7,14 @@ const Navbar = () => {
   const [isScrolledTop, setIsScrolledTop] = useState(true);
 
   useEffect(() => {
+    if (isMobileActive) {
+      document.addEventListener('click', toggleMobileMenu);
+
+      return () => document.removeEventListener('click', toggleMobileMenu);
+    }
+  }, [isMobileActive]);
+
+  useEffect(() => {
     const checkIfScrolledTop = () => {
       if (window.pageYOffset === 0 && !isScrolledTop) {
         setIsScrolledTop(true);

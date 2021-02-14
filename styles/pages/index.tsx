@@ -4,7 +4,7 @@ import Slider from 'react-slick';
 import tw from 'twin.macro';
 
 export const StyledHeader = styled.header`
-  background: url('/img/home-header.png') no-repeat;
+  background: url('/img/home-header.jpg') no-repeat;
   background-size: cover;
   background-position: bottom;
   min-height: 500px;
