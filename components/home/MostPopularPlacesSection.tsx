@@ -21,10 +21,8 @@ const MostPopularPlacesSection = () => {
   return (
     <>
       <Section className='sm:-mb-16'>
-        <SectionTitle>
-          Najpopularniejsze miejsca do
-          <br />
-          odwiedzin z ostatnich 7 dni
+        <SectionTitle className='max-w-lg mx-auto'>
+          Najpopularniejsze miejsca do odwiedzin z ostatnich 7 dni
         </SectionTitle>
         <TitleLine />
         <Paragraph>

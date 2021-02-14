@@ -30,12 +30,6 @@ const CarouselSection = () => {
           slidesToShow: 2,
         },
       },
-      {
-        breakpoint: 480,
-        settings: {
-          slidesToShow: 1,
-        },
-      },
     ],
     speed: 500,
   };

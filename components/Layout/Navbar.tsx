@@ -5,7 +5,6 @@ import { MenuLink, StyledNav } from '../../styles/components/Navbar';
 const Navbar = () => {
   const [isMobileActive, setIsMobileActive] = useState(false);
   const [isScrolledTop, setIsScrolledTop] = useState(true);
-  const [isAdminDropdownOpen, setIsAdminDropdownOpen] = useState(true);
 
   useEffect(() => {
     const checkIfScrolledTop = () => {
@@ -48,7 +47,7 @@ const Navbar = () => {
                 </MenuLink>
                 <MenuLink>Dla właścicieli</MenuLink>
                 <MenuLink>Kontakt</MenuLink>
-                <MenuLink className='mr-0' id='admin-menu-trigger'>
+                <MenuLink as='div' className='mr-0' id='admin-menu-trigger'>
                   <i className='far fa-user pr-2' />
                   Admin
                   <i className='fas fa-sort-down relative -top-1 left-2' />
