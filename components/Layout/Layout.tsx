@@ -19,8 +19,13 @@ const GlobalStyles = createGlobalStyle`
 
   body {
     font-family: 'Titillium Web', sans-serif;
-    /* background-image: url("/img/bg.jpg");
-    background-repeat: no-repeat; */
+    overflow-x: hidden;
+
+    @media screen and (min-width: 1024px) {
+      /* background-image: url("/img/bg.jpg");
+      background-repeat: no-repeat;
+      background-position-y: 825px; */
+    }
   }
 `;
 

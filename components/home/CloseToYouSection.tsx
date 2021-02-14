@@ -15,10 +15,10 @@ import {
 
 const CloseToYouSection = () => {
   return (
-    <Section id='closeToYouSection'>
+    <Section id='closeToYouSection' className='lg:!mt-20'>
       <SectionTitle>Najlepsze rozwiązania blisko Ciebie</SectionTitle>
       <TitleLine />
-      <CloseToYouGrid className='mt-12'>
+      <CloseToYouGrid className='mt-12 max-w-4xl mx-auto'>
         <CloseToYouGridItem>
           <CloseToYouImg src='/img/place.jpg' alt='Zakopane' />
           <ContentGroup>

@@ -13,24 +13,24 @@ export const StyledFooter = styled.footer`
   }
 `;
 
-export const NavGrid = styled.section``;
+export const NavGrid = tw.section`lg:grid lg:grid-cols-3 lg:gap-8`;
 
 export const NavGridItem = styled.div`
   &:not(:first-child) {
-    margin-top: 2rem;
+    @media screen and (max-width: 1024px) {
+      margin-top: 2rem;
+    }
   }
 `;
 
 export const NavSubTitle = styled.h3.attrs({
-  className: 'text-2xl mb-3 uppercase',
+  className: 'text-2xl mb-3 uppercase lg:text-left',
 })``;
 
 export const NavList = styled.ul.attrs({ className: 'leading-8' })``;
 
-export const NavListItem = styled.li``;
+export const NavListItem = tw.li`lg:text-left`;
 
-export const NavLink = styled.a.attrs({
-  className: 'text-lg opacity-80 hover:opacity-100 transition-opacit',
-})``;
+export const NavLink = tw.a`text-lg opacity-80 hover:opacity-100 transition-opacity`;
 
 export const FooterSeparator = tw(Separator)`my-12`;

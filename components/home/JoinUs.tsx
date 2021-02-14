@@ -10,21 +10,21 @@ import { JoinUsButton } from '../../styles/pages';
 
 const JoinUs = () => {
   return (
-    <Section>
-      <SectionTitle>
+    <Section className='lg:mt-36'>
+      <SectionTitle className='lg:!text-left'>
         Dołącz do tysięcy gospodarzy dzięki Gościnni.pl
       </SectionTitle>
-      <TitleLine />
-      <Paragraph>
+      <TitleLine className='lg:!ml-0' />
+      <Paragraph className='lg:!text-left lg:mb-24'>
         Nasza społeczność każdego dnia się powiększa, teraz rejestracja obiektu
         przebiega jeszcze szybciej!
       </Paragraph>
-      <div className='mt-6 grid gap-4 md:mt-12'>
+      <div className='mt-6 grid gap-4 md:mt-12 lg:grid-cols-3'>
         <Link href='/'>
           <JoinUsButton>Zostań gospodarzem apartamentu</JoinUsButton>
         </Link>
         <Link href='/'>
-          <JoinUsButton bgColor='bg-themeBlue hover:bg-themeBlueDarker'>
+          <JoinUsButton darker className='lg:!mt-12'>
             Zostań gospodarzem nieruchomości
           </JoinUsButton>
         </Link>

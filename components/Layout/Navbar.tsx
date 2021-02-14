@@ -1,11 +1,11 @@
 import Link from 'next/link';
 import React, { useEffect, useState } from 'react';
-import { Ass, MenuLink, StyledNav, x } from '../../styles/components/Navbar';
-import { Paragraph } from '../../styles/components/utils';
+import { MenuLink, StyledNav } from '../../styles/components/Navbar';
 
 const Navbar = () => {
   const [isMobileActive, setIsMobileActive] = useState(false);
   const [isScrolledTop, setIsScrolledTop] = useState(true);
+  const [isAdminDropdownOpen, setIsAdminDropdownOpen] = useState(true);
 
   useEffect(() => {
     const checkIfScrolledTop = () => {
@@ -40,12 +40,48 @@ const Navbar = () => {
                 alt='gościnni.pl'
               />
             </div>
-            <div className='hidden md:block sm:ml-6'>
+            <div className='hidden lg:block sm:ml-6'>
               <div className='flex space-x-4'>
                 {/* Current: "bg-gray-900 text-white", Default: "text-gray-300 hover:bg-gray-700 hover:text-white" */}
-                <MenuLink isActive>Strona główna</MenuLink>
-                <MenuLink>O nas</MenuLink>
-                <MenuLink className='mr-0'>Kontakt</MenuLink>
+                <MenuLink isActive isScrolledTop={isScrolledTop}>
+                  Strona główna
+                </MenuLink>
+                <MenuLink>Dla właścicieli</MenuLink>
+                <MenuLink>Kontakt</MenuLink>
+                <MenuLink className='mr-0' id='admin-menu-trigger'>
+                  <i className='far fa-user pr-2' />
+                  Admin
+                  <i className='fas fa-sort-down relative -top-1 left-2' />
+                  <div
+                    className='hidden text-left origin-top-right absolute right-0 mt-2 w-48 rounded-md shadow-lg py-1 bg-white ring-1 ring-black ring-opacity-5'
+                    role='menu'
+                    aria-orientation='vertical'
+                    aria-labelledby='admin-menu'
+                    id='admin-menu-dropdown'
+                  >
+                    <a
+                      href='#'
+                      className='block px-4 py-2 text-sm text-gray-700 hover:bg-gray-100'
+                      role='menuitem'
+                    >
+                      Twój profil
+                    </a>
+                    <a
+                      href='#'
+                      className='block px-4 py-2 text-sm text-gray-700 hover:bg-gray-100'
+                      role='menuitem'
+                    >
+                      Ustawienia
+                    </a>
+                    <a
+                      href='#'
+                      className='block px-4 py-2 text-sm text-gray-700 hover:bg-gray-100'
+                      role='menuitem'
+                    >
+                      Wyloguj
+                    </a>
+                  </div>
+                </MenuLink>
               </div>
             </div>
           </div>
@@ -54,7 +90,7 @@ const Navbar = () => {
               <div>
                 {/* Mobile menu button*/}
                 <button
-                  className='md:hidden inline-flex items-center justify-center p-2 rounded-md text-white hover:text-white'
+                  className='lg:hidden inline-flex items-center justify-center p-2 rounded-md text-white hover:text-white'
                   aria-expanded='false'
                   onClick={toggleMobileMenu}
                 >
@@ -100,7 +136,7 @@ const Navbar = () => {
       <div
         className={`${
           isMobileActive ? 'scale-y-100 shadow-md' : 'scale-y-0'
-        } md:hidden bg-themeDarker transform transition-transform origin-top`}
+        } lg:hidden bg-themeDarker transform transition-transform origin-top`}
       >
         <div className='px-2 pt-2 pb-3 space-y-1'>
           <Link href='/'>
@@ -111,6 +147,16 @@ const Navbar = () => {
           </Link>
           <Link href='/'>
             <MenuLink>O nas</MenuLink>
+          </Link>
+          {/* Admin dropdown */}
+          <Link href='/'>
+            <MenuLink>Twój profil</MenuLink>
+          </Link>
+          <Link href='/'>
+            <MenuLink>Ustawienia</MenuLink>
+          </Link>
+          <Link href='/'>
+            <MenuLink>Wyloguj</MenuLink>
           </Link>
         </div>
       </div>

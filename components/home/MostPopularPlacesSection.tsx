@@ -22,22 +22,32 @@ const MostPopularPlacesSection = () => {
     <>
       <Section className='sm:-mb-16'>
         <SectionTitle>
-          Najpopularniejsze miejsca do odwiedzin z ostatnich 7 dni
+          Najpopularniejsze miejsca do
+          <br />
+          odwiedzin z ostatnich 7 dni
         </SectionTitle>
         <TitleLine />
-        <Paragraph>W swojej ofercie posiadamy niezliczone możliwości</Paragraph>
+        <Paragraph>
+          W swojej ofercie posiadamy
+          <br /> niezliczone możliwości
+        </Paragraph>
       </Section>
       <BackgroundWrapper>
         <Section>
           <PopularPlacesGrid>
-            <PopularPlacesGridItem imgSrc='/img/landscape.jpg'>
+            <PopularPlacesGridItem
+              className='lg:row-start-1 lg:col-span-4'
+              imgSrc='/img/landscape.jpg'
+            >
               <TopRowWrapper>
-                <Paragraph color='text-white'>Makadamia apartamenty</Paragraph>
+                <Paragraph color='text-white lg:!text-left lg:!text-xl'>
+                  Makadamia apartamenty
+                </Paragraph>
                 <Badge>Zakopane</Badge>
               </TopRowWrapper>
               <BottomRowWrapper>
                 <div>
-                  <Paragraph color='text-white'>
+                  <Paragraph color='text-white lg:!text-xl'>
                     Ceny zaczynają się od:
                   </Paragraph>
                   <Paragraph
@@ -52,14 +62,19 @@ const MostPopularPlacesSection = () => {
                 <Rate>9.7</Rate>
               </BottomRowWrapper>
             </PopularPlacesGridItem>
-            <PopularPlacesGridItem imgSrc='/img/landscape.jpg'>
+            <PopularPlacesGridItem
+              className='lg:row-start-2 lg:col-span-4'
+              imgSrc='/img/landscape.jpg'
+            >
               <TopRowWrapper>
-                <Paragraph color='text-white'>Makadamia apartamenty</Paragraph>
+                <Paragraph color='text-white lg:!text-left lg:!text-xl'>
+                  Makadamia apartamenty
+                </Paragraph>
                 <Badge>Zakopane</Badge>
               </TopRowWrapper>
               <BottomRowWrapper>
                 <div>
-                  <Paragraph color='text-white'>
+                  <Paragraph color='text-white lg:!text-xl'>
                     Ceny zaczynają się od:
                   </Paragraph>
                   <Paragraph
@@ -74,9 +89,14 @@ const MostPopularPlacesSection = () => {
                 <Rate>9.7</Rate>
               </BottomRowWrapper>
             </PopularPlacesGridItem>
-            <PopularPlacesGridItem imgSrc='/img/landscape.jpg'>
+            <PopularPlacesGridItem
+              className='lg:col-start-5 lg:col-span-8 lg:row-span-full'
+              imgSrc='/img/landscape.jpg'
+            >
               <TopRowWrapper>
-                <Paragraph color='text-white'>Makadamia apartamenty</Paragraph>
+                <Paragraph color='text-white lg:!text-left'>
+                  Makadamia apartamenty
+                </Paragraph>
                 <Badge>Zakopane</Badge>
               </TopRowWrapper>
               <BottomRowWrapper>
@@ -93,7 +113,7 @@ const MostPopularPlacesSection = () => {
                     40 ZŁ
                   </Paragraph>
                 </div>
-                <Rate>9.7</Rate>
+                <Rate className='lg:w-16 lg:h-16 lg:text-2xl'>9.7</Rate>
               </BottomRowWrapper>
             </PopularPlacesGridItem>
           </PopularPlacesGrid>
@@ -101,7 +121,9 @@ const MostPopularPlacesSection = () => {
       </BackgroundWrapper>
       <Section className='-mt-6 sm:-mt-16'>
         <Link href='/' passHref>
-          <Button>Pokaż więcej</Button>
+          <Button className='lg:!block lg:!w-60 lg:!px-16 lg:!ml-auto'>
+            Pokaż więcej
+          </Button>
         </Link>
       </Section>
     </>

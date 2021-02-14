@@ -33,6 +33,10 @@ module.exports = {
       borderRadius: ['important'],
       display: ['important'],
       flex: ['important'],
+      maxWidth: ['important'],
+      maxHeight: ['important'],
+      position: ['important'],
+      inset: ['important'],
     },
   },
   plugins: [

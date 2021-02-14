@@ -4,10 +4,14 @@ import Slider from 'react-slick';
 import tw from 'twin.macro';
 
 export const StyledHeader = styled.header`
-  background: url('/img/home-header.png');
+  background: url('/img/home-header.png') no-repeat;
   background-size: cover;
-  background-position: center;
+  background-position: bottom;
   min-height: 500px;
+
+  @media screen and (min-width: 1024px) {
+    height: 900px;
+  }
 
   .input {
     transition: border 0.2s ease-in-out;
@@ -18,13 +22,13 @@ export const StyledHeader = styled.header`
   .input.filled + .label {
     transition: all 0.2s ease-out;
     top: -0.1rem;
-    color: #9f91d8;
+    color: #aaaaaa;
   }
 
   .selected-date {
     transition: all 0.2s ease-out;
     top: -0.1rem !important;
-    color: #9f91d8;
+    color: #aaaaaa;
   }
 
   .label {
@@ -33,6 +37,8 @@ export const StyledHeader = styled.header`
     left: 0.67rem;
 
     @media screen and (max-width: 1024px) {
+      width: 200px;
+      text-align: center;
       left: 50%;
       transform: translateX(-50%);
     }
@@ -43,11 +49,9 @@ export const StyledHeader = styled.header`
   }
 `;
 
-export const FormGroup = styled.div.attrs({
-  className: 'mb-4 relative lg:mb-0',
-})``;
+export const FormGroup = tw.div`mb-4 relative lg:mb-0 lg:w-40`;
 
-export const FormGroupImg = tw.img`absolute -left-5 top-1`;
+export const FormGroupImg = tw.img`absolute -left-6 top-2 hidden lg:block`;
 
 interface IInput {
   className?: string;
@@ -55,12 +59,12 @@ interface IInput {
 
 export const Input = styled.input.attrs<IInput>({
   className:
-    'input flex text-center lg:text-left border border-gray-300 lg:border-0 appearance-none rounded w-full px-3 py-3 pt-5 pb-2 focus focus:border-indigo-600 focus:outline-none active:outline-none active:border-indigo-600',
+    'input flex text-center lg:text-left lg:font-bold lg:text-2xl border border-gray-300 lg:border-0 appearance-none rounded w-full px-3 py-3 pt-5 pb-2 focus focus:border-indigo-600 focus:outline-none active:outline-none active:border-indigo-600',
 })<IInput>``;
 
 export const StyledDatePicker = styled(DatePicker).attrs({
   className:
-    'input w-full text-center lg:text-left lg:border-0 border border-gray-300 appearance-none rounded w-full px-3 py-3 pt-5 pb-2 focus focus:border-indigo-600 focus:outline-none active:outline-none active:border-indigo-600',
+    'input cursor-pointer w-full text-center lg:font-bold lg:text-2xl lg:text-left lg:border-0 border border-gray-300 appearance-none rounded w-full px-3 py-3 pt-5 pb-2 focus focus:border-indigo-600 focus:outline-none active:outline-none active:border-indigo-600',
 })`
   width: 100% !important;
 `;
@@ -87,34 +91,49 @@ export const Button = styled.button.attrs((props: { as?: string }) => ({
 
 export const CloseToYouGrid = tw.div`grid-cols-3 grid gap-3 md:gap-5`;
 
-export const CloseToYouGridItem = tw.div`justify-center items-center flex flex-col md:flex-row`;
+export const CloseToYouGridItem = tw.div`cursor-pointer justify-center items-center flex flex-col md:flex-row`;
 
-export const CloseToYouImg = tw.img`rounded-xl h-20 w-20 md:h-14 md:w-14 md:mr-3 object-cover sm:h-40 sm:w-40`;
+export const CloseToYouImg = tw.img`rounded-xl lg:mr-4 h-20 w-20 md:h-14 md:w-14 md:mr-3 lg:w-20 lg:h-20 object-cover sm:h-40 sm:w-40`;
 
 export const ContentGroup = styled.div.attrs({
   className: 'flex flex-col text-center',
 })``;
 
 export const CloseToYouItemTitle = styled.h3.attrs({
-  className: 'font-bold mt-1',
+  className: 'font-bold mt-1 lg:text-xl',
 })``;
 
-export const CloseToYouItemSubTitle = tw.h3`opacity-80 md:text-left`;
+export const CloseToYouItemSubTitle = tw.h3`opacity-80 md:text-left lg:text-lg`;
+
+export const SliderWrapper = styled.div`
+  @media screen and (min-width: 1024px) {
+    width: 1200px;
+    left: 40%;
+    top: 0%;
+
+    &:before {
+      ${tw`bg-theme`}
+      content: "";
+      top: 50%;
+      left: 20px;
+      transform: translateY(-50%);
+      position: absolute;
+      width: 100%;
+      height: 70px;
+    }
+  }
+`;
 
 export const StyledSlider = styled(Slider)`
   ${tw`mt-10 mb-12`}
 
-  .slick-active {
+  .slick-current + .slick-slide {
     transform: scale(1.1);
     transition: transform 0.15s ease-in-out;
   }
 
-  .slick-active ~ .slick-active {
-    transform: scale(1);
-  }
-
   .slick-slide {
-    padding: 10px;
+    padding: 15px;
   }
 
   .slick-prev:before {
@@ -129,16 +148,36 @@ export const StyledSlider = styled(Slider)`
     font-weight: 700;
   }
 
-  .slick-arrow:before {
-    ${tw`text-theme shadow-lg`}
-    background-color: #fff;
-    width: 50px;
-    height: 50px;
-    display: flex;
-    border-radius: 50%;
-    justify-content: center;
-    align-items: center;
-    font-size: 1.9rem;
+  .slick-next {
+    @media screen and (min-width: 1024px) {
+      display: none !important;
+    }
+  }
+
+  .slick-arrow {
+    &:hover:before {
+      background-color: #f8f8f8 !important;
+    }
+
+    :before {
+      ${tw`text-theme shadow-lg`}
+      background-color: #fff;
+      width: 50px;
+      height: 50px;
+      display: flex;
+      border-radius: 50%;
+      justify-content: center;
+      align-items: center;
+      font-size: 1.9rem;
+      transition: background-color 0.15s ease-in-out;
+
+      @media screen and (min-width: 1024px) {
+        opacity: 1 !important;
+        width: 70px;
+        font-size: 2.2rem;
+        height: 70px;
+      }
+    }
   }
 
   .slick-arrow.slick-prev {
@@ -147,6 +186,11 @@ export const StyledSlider = styled(Slider)`
     position: absolute;
     top: 50%;
     transform: translateY(-75%);
+
+    @media screen and (min-width: 1024px) {
+      left: -10px;
+      transform: translateY(-175%);
+    }
   }
 
   .slick-arrow.slick-next {
@@ -160,18 +204,24 @@ export const StyledSlider = styled(Slider)`
   img {
     display: block;
     object-fit: cover;
-    border-radius: 12px;
+    border-radius: 10px;
   }
 `;
 
 // Most Popular places section
-export const PopularPlacesGrid = tw.div`grid gap-5 `;
+export const PopularPlacesGrid = tw.div`grid gap-5 lg:grid-rows-2 lg:grid-cols-12 lg:h-96`;
 
 export const PopularPlacesGridItem = styled.div<{ imgSrc: string }>`
+  cursor: pointer;
   position: relative;
   background-image: url(${(props) => props.imgSrc});
-  height: 275px;
+  background-size: cover;
+  background-position: center;
   border-radius: 10px;
+
+  @media screen and (max-width: 1024px) {
+    height: 275px;
+  }
 
   :before {
     content: '';
@@ -187,7 +237,7 @@ export const TopRowWrapper = tw.div`p-4 flex absolute text-white justify-between
 
 export const BottomRowWrapper = tw.div`p-4 items-center flex absolute bottom-0 text-white justify-between w-full`;
 
-export const Rate = tw.div`border border-white p-3 bg-white bg-opacity-10`;
+export const Rate = tw.div`border border-white p-3 bg-white bg-opacity-10 flex items-center justify-center`;
 
 export const BackgroundWrapper = styled.div`
   position: relative;
@@ -200,13 +250,22 @@ export const BackgroundWrapper = styled.div`
     height: 80%;
     top: 50%;
     transform: translateY(-50%);
+
+    @media screen and (min-width: 1024px) {
+      height: 60%;
+    }
   }
 `;
 
 // Join us section
+interface IJoinUsButton {
+  darker?: boolean;
+}
 
-export const JoinUsButton: React.FC<{ bgColor?: string }> = styled.a.attrs(
-  ({ bgColor = 'bg-theme hover:bg-themeDarker' }) => ({
-    className: `block px-8  py-4 text-center transition justify-center cursor-pointer h-20 flex items-center ${bgColor} font-bold text-lg text-white rounded-lg`,
-  })
-)``;
+export const JoinUsButton = styled.a.attrs<IJoinUsButton>(({ darker }) => ({
+  className: `flex lg:text-xl px-8 ${
+    darker
+      ? 'bg-themeBlue hover:bg-themeBlueDarker'
+      : 'bg-theme hover:bg-themeDarker'
+  } py-4 text-center transition justify-center cursor-pointer h-20 lg:h-24 items-center font-bold text-lg text-white rounded-lg`,
+}))<IJoinUsButton>``;
