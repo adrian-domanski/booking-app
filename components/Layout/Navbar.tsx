@@ -4,22 +4,7 @@ import { MenuLink, StyledNav } from '../../styles/components/Navbar';
 
 const Navbar = () => {
   const [isMobileActive, setIsMobileActive] = useState(false);
-  const [isScrolledTop, setIsScrolledTop] = useState(() => {
-    if (!process.browser) return true;
-    if (window.pageYOffset === 0 && !isScrolledTop) {
-      return true;
-    } else if (window.pageYOffset !== 0 && isScrolledTop) {
-      return false;
-    }
-  });
-
-  useEffect(() => {
-    if (isMobileActive) {
-      document.addEventListener('click', toggleMobileMenu);
-
-      return () => document.removeEventListener('click', toggleMobileMenu);
-    }
-  }, [isMobileActive]);
+  const [isScrolledTop, setIsScrolledTop] = useState(true);
 
   const checkIfScrolledTop = () => {
     if (window.pageYOffset === 0 && !isScrolledTop) {
@@ -28,6 +13,16 @@ const Navbar = () => {
       setIsScrolledTop(false);
     }
   };
+
+  useEffect(checkIfScrolledTop, []);
+
+  useEffect(() => {
+    if (isMobileActive) {
+      document.addEventListener('click', toggleMobileMenu);
+
+      return () => document.removeEventListener('click', toggleMobileMenu);
+    }
+  }, [isMobileActive]);
 
   useEffect(() => {
     window.addEventListener('scroll', checkIfScrolledTop);
