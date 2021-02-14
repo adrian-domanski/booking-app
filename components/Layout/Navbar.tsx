@@ -4,7 +4,14 @@ import { MenuLink, StyledNav } from '../../styles/components/Navbar';
 
 const Navbar = () => {
   const [isMobileActive, setIsMobileActive] = useState(false);
-  const [isScrolledTop, setIsScrolledTop] = useState(true);
+  const [isScrolledTop, setIsScrolledTop] = useState(() => {
+    if (!process.browser) return true;
+    if (window.pageYOffset === 0 && !isScrolledTop) {
+      return true;
+    } else if (window.pageYOffset !== 0 && isScrolledTop) {
+      return false;
+    }
+  });
 
   useEffect(() => {
     if (isMobileActive) {
@@ -14,15 +21,15 @@ const Navbar = () => {
     }
   }, [isMobileActive]);
 
-  useEffect(() => {
-    const checkIfScrolledTop = () => {
-      if (window.pageYOffset === 0 && !isScrolledTop) {
-        setIsScrolledTop(true);
-      } else if (window.pageYOffset !== 0 && isScrolledTop) {
-        setIsScrolledTop(false);
-      }
-    };
+  const checkIfScrolledTop = () => {
+    if (window.pageYOffset === 0 && !isScrolledTop) {
+      setIsScrolledTop(true);
+    } else if (window.pageYOffset !== 0 && isScrolledTop) {
+      setIsScrolledTop(false);
+    }
+  };
 
+  useEffect(() => {
     window.addEventListener('scroll', checkIfScrolledTop);
 
     return () => window.removeEventListener('scroll', checkIfScrolledTop);
