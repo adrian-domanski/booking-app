@@ -27,4 +27,4 @@ export const Paragraph = styled.p.attrs(
   })
 )<IParagraph>``;
 
-export const Badge = tw.div`text-black bg-white h-7 rounded-lg font-bold px-2 flex items-center`;
+export const Badge = tw.div`text-black bg-white h-7 rounded-lg font-bold px-2 flex justify-center items-center`;

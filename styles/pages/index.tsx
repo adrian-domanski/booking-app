@@ -79,15 +79,19 @@ export const Label = styled.label.attrs<LabelProps>(({ className }) => ({
   } label absolute mb-0 -mt-3 pt-4 leading-tighter text-gray-400 lg:text-sm cursor-text`,
 }))``;
 
-export const Button = styled.button.attrs((props: { as?: string }) => ({
-  as: props.as ? props.as : 'a',
-}))`
-  ${tw`bg-theme text-white p-3 w-full block text-center rounded transition-colors hover:bg-themeDarker`}
+interface IButton {
+  as?: string;
+  color?: string;
+}
 
-  &:hover {
-    background-color: #9487cf;
-  }
-`;
+export const Button = styled.button.attrs((props: IButton) => ({
+  as: props.as ? props.as : 'a',
+  className: `${
+    props.color === 'success'
+      ? 'bg-themeGreen hover:bg-themeGreenDarker'
+      : 'bg-theme hover:bg-themeDarker'
+  } text-white p-3 w-full block text-center rounded transition-colors`,
+}))<IButton>``;
 
 export const CloseToYouGrid = tw.div`grid-cols-3 grid gap-3 md:gap-5`;
 

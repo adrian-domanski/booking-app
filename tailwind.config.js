@@ -11,10 +11,15 @@ module.exports = {
   darkMode: false, // or 'media' or 'class'
   theme: {
     extend: {
+      boxShadow: {
+        custom: '0 0 10px -2px #c7c7c7',
+      },
       colors: {
         theme: '#9f91d8',
         themeDarker: '#8477bc',
         themeBlue: '#7c72d0',
+        themeGreen: '#47a64c',
+        themeGreenDarker: '#39913d',
         themeBlueDarker: '#59519a',
         transparent: 'transparent',
       },
@@ -37,6 +42,7 @@ module.exports = {
       maxHeight: ['important'],
       position: ['important'],
       inset: ['important'],
+      borderColor: ['important'],
     },
   },
   plugins: [
