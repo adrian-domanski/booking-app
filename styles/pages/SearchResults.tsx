@@ -1,5 +1,12 @@
 import styled from 'styled-components';
 import tw from 'twin.macro';
+import { Section } from '../components/utils';
+
+export const SearchForAccomodationSection = styled(Section)`
+  .react-datepicker-wrapper {
+    width: 100%;
+  }
+`;
 
 export const StyledHeader = styled.header`
   ${tw`relative`}
@@ -74,6 +81,7 @@ export const RangeInput = styled.div`
 
   input[type='range']::-webkit-slider-thumb {
     ${tw`bg-theme`}
+    cursor: pointer;
     -webkit-appearance: none;
     border: none;
     height: 24px;
@@ -87,7 +95,7 @@ export const RangeInput = styled.div`
   }
 
   input[type='range']:focus::-webkit-slider-runnable-track {
-    background: #ccc;
+    background: #7e7e7e;
   }
 `;
 

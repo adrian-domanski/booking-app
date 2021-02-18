@@ -48,12 +48,12 @@ const SearchListItem = () => {
               Ostatnio zarezerwowano 1 godzinę temu na naszej stronie
             </span>
           </p>
-          <div className='flex justify-between items-center xl:items-end xl:flex-col-reverse xl:justify-end'>
+          <div className='flex justify-between xl:justify-start items-center xl:items-end xl:flex-col-reverse'>
             <Link href='/strona-obiektu'>
               <Button
                 as='a'
                 color='success'
-                className='mt-4 xl:!text-sm xl:mt-1 !w-auto !table'
+                className='mt-4 xl:!text-sm xl:mt-2 !w-auto !table'
               >
                 <div className='flex items-center'>
                   <span>Sprawdź dostępność</span>

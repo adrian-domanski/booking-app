@@ -128,7 +128,7 @@ const FacilityAside = () => {
         )}
       </div>
 
-      <Section className='bg-white shadow-md rounded px-8 pt-6 pb-8 flex flex-col mb-8'>
+      <Section className='bg-white shadow-md rounded !p-8 flex flex-col mb-8'>
         <h1 className='text-xl font-semibold mb-5'>
           <b>Goście</b> uwielbiają...
         </h1>
@@ -163,7 +163,7 @@ const FacilityAside = () => {
             </p>
           </div>
         </div>
-        <div className='flex flex-row mb-3'>
+        <div className='flex flex-row mb-6'>
           <i className='fas fa-parking text-themeBlue !text-lg mr-2 fa-heart' />
           <div>
             <p>Parking na terenie obiektu</p>

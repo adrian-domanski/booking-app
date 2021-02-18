@@ -25,7 +25,7 @@ export const StyledHeader = styled.header`
 `;
 
 export const StyledWrapper = styled.div`
-  img.image-gallery-image {
+  .image-gallery-slides {
     ${tw`rounded`}
     object-fit: cover;
   }

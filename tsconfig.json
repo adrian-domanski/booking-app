@@ -19,7 +19,8 @@
     "**/*.ts",
     "**/*.tsx",
     "pages/_document.jsx",
-    "pages/_app.jsx"
+    "pages/_app.jsx",
+    "components/GoogleMap.js"
   ],
   "exclude": ["node_modules"]
 }

@@ -11,7 +11,6 @@ import {
 import { registerLocale } from 'react-datepicker';
 import pl from 'date-fns/locale/pl';
 registerLocale('pl', pl);
-
 import 'react-datepicker/dist/react-datepicker.css';
 import { Section } from '../../styles/components/utils';
 import Link from 'next/link';

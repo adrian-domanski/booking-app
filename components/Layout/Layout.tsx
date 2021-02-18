@@ -17,6 +17,14 @@ const GlobalStyles = createGlobalStyle`
     scroll-padding-top: 65px;
   }
 
+  .react-datepicker-wrapper {
+    width: 100%;
+  }
+
+  .react-datepicker-popper {
+    z-index: 100;
+  }
+
   body {
     font-family: 'Titillium Web', sans-serif;
     overflow-x: hidden;

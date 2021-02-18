@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useState } from 'react';
 import { Section } from '../../styles/components/utils';
 import { Button } from '../../styles/pages';
 import {
@@ -11,6 +11,11 @@ import {
 import GoogleMap from '../GoogleMap';
 
 const Filters = () => {
+  const [maxPrice, setMaxPrice] = useState(2300);
+
+  const priceRangeChange = (e: React.ChangeEvent<HTMLInputElement>) =>
+    setMaxPrice(+e.target.value);
+
   return (
     <Section className='!py-0 md:!p-0 md:!mt-8'>
       <Card>
@@ -27,10 +32,12 @@ const Filters = () => {
             type='range'
             defaultValue={2300}
             min={0}
+            value={maxPrice}
+            onChange={priceRangeChange}
             max={2300}
           />
           <span className='start_value'>0zł</span>
-          <span className='end_value'>2300zł</span>
+          <span className='end_value'>{maxPrice}zł</span>
         </RangeInput>
 
         <hr className='my-6' />

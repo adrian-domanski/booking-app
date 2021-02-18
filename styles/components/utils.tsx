@@ -28,3 +28,29 @@ export const Paragraph = styled.p.attrs(
 )<IParagraph>``;
 
 export const Badge = tw.div`text-black bg-white h-7 rounded-lg font-bold px-2 flex justify-center items-center`;
+
+interface IPageHeader {
+  bgUrl: string;
+}
+
+export const PageHeader = styled.header<IPageHeader>`
+  ${tw`relative flex items-center flex-col justify-center`}
+  background-image: url(${({ bgUrl }) => bgUrl});
+  background-size: cover;
+  background-position: center;
+  position: relative;
+  min-height: 450px;
+  z-index: 1;
+
+  :after {
+    ${tw`bg-themeBlue`}
+    content: "";
+    position: absolute;
+    z-index: -1;
+    top: 0;
+    left: 0;
+    opacity: 0.9;
+    width: 100%;
+    height: 100%;
+  }
+`;

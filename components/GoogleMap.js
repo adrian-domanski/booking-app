@@ -14,7 +14,6 @@ class GoogleMap extends Component {
 
   render() {
     return (
-      // Important! Always set the container height explicitly
       <div
         className='rounded-lg overflow-hidden'
         style={{ height: '180px', width: '100%' }}
