@@ -1,10 +1,13 @@
 import Link from 'next/link';
 import React, { useEffect, useState } from 'react';
 import { MenuLink, StyledNav } from '../../styles/components/Navbar';
+import { useRouter } from 'next/router';
 
 const Navbar = () => {
   const [isMobileActive, setIsMobileActive] = useState(false);
   const [isScrolledTop, setIsScrolledTop] = useState(true);
+
+  const { pathname } = useRouter();
 
   const checkIfScrolledTop = () => {
     if (window.pageYOffset === 0 && !isScrolledTop) {
@@ -43,18 +46,25 @@ const Navbar = () => {
           <div className='absolute inset-y-0 left-0 flex items-center sm:hidden'></div>
           <div className='flex-1 flex items-start sm:items-stretch sm:justify-start md:justify-between'>
             <div className='flex-shrink-0 flex items-center'>
-              <img
-                className='block h-7 w-auto ml-2'
-                src='/img/logo.png'
-                alt='gościnni.pl'
-              />
+              <Link href='/'>
+                <img
+                  className='block h-7 w-auto ml-2 cursor-pointer'
+                  src='/img/logo.png'
+                  alt='gościnni.pl'
+                />
+              </Link>
             </div>
             <div className='hidden lg:block sm:ml-6'>
               <div className='flex space-x-4'>
                 {/* Current: "bg-gray-900 text-white", Default: "text-gray-300 hover:bg-gray-700 hover:text-white" */}
-                <MenuLink isActive isScrolledTop={isScrolledTop}>
-                  Strona główna
-                </MenuLink>
+                <Link href='/'>
+                  <MenuLink
+                    isActive={pathname === '/'}
+                    isScrolledTop={isScrolledTop}
+                  >
+                    Strona główna
+                  </MenuLink>
+                </Link>
                 <MenuLink>Dla właścicieli</MenuLink>
                 <MenuLink>Kontakt</MenuLink>
                 <MenuLink as='div' className='mr-0' id='admin-menu-trigger'>

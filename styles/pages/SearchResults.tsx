@@ -93,7 +93,7 @@ export const RangeInput = styled.div`
 
 export const Card = tw.div`bg-white shadow-lg p-4 md:p-8 rounded-md`;
 
-export const CheckBoxLabel = tw.label`flex items-center mt-3`;
+export const CheckBoxLabel = tw.label`cursor-pointer flex items-center mt-3`;
 
 export const CheckBoxInput = tw.input`h-5 w-5 text-gray-600`;
 

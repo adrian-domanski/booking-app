@@ -1,3 +1,4 @@
+import Link from 'next/link';
 import React from 'react';
 import { Badge } from '../../styles/components/utils';
 import { Button } from '../../styles/pages';
@@ -48,15 +49,18 @@ const SearchListItem = () => {
             </span>
           </p>
           <div className='flex justify-between items-center xl:items-end xl:flex-col-reverse xl:justify-end'>
-            <Button
-              color='success'
-              className='mt-4 xl:!text-sm xl:mt-1 !w-auto !table'
-            >
-              <div className='flex items-center'>
-                <span>Sprawdź dostępność</span>
-                <i className='fas fa-angle-right ml-2'></i>
-              </div>
-            </Button>
+            <Link href='/strona-obiektu'>
+              <Button
+                as='a'
+                color='success'
+                className='mt-4 xl:!text-sm xl:mt-1 !w-auto !table'
+              >
+                <div className='flex items-center'>
+                  <span>Sprawdź dostępność</span>
+                  <i className='fas fa-angle-right ml-2'></i>
+                </div>
+              </Button>
+            </Link>
             <p className='mt-4 text-right text-xl'>
               Cena od <b>99zł</b>
             </p>

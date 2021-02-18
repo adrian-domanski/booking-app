@@ -8,7 +8,7 @@ import {
   CheckBoxSpan,
   RangeInput,
 } from '../../styles/pages/SearchResults';
-import GoogleMap from './GoogleMap';
+import GoogleMap from '../GoogleMap';
 
 const Filters = () => {
   return (
@@ -25,9 +25,9 @@ const Filters = () => {
           <input
             className='range-slider__range'
             type='range'
-            defaultValue={400}
+            defaultValue={2300}
             min={0}
-            max={500}
+            max={2300}
           />
           <span className='start_value'>0zł</span>
           <span className='end_value'>2300zł</span>
