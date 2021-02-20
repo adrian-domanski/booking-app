@@ -33,8 +33,10 @@ const InviteFriends = () => {
           </Link>
         </Section>
       </PageHeader>
-      <Section>
-        <Button className='!w-auto'>Zaloguj się, by zaprosić znajomych</Button>
+      <Section className='md:!pb-0'>
+        <Button className='!w-auto !table mx-auto px-8 '>
+          Zaloguj się, by zaprosić znajomych
+        </Button>
         <p className='text-center mt-12 text-gray-700'>
           Nie masz jeszcze konta?{' '}
           <Link href='/'>
@@ -49,8 +51,8 @@ const InviteFriends = () => {
           <LoginIcon className='fab fa-facebook-f'></LoginIcon>
         </div>
       </Section>
-      <Section>
-        <hr className='mb-8' />
+      <Section className='!max-w-4xl mx-auto'>
+        <hr className='mb-16' />
         <SectionTitle className='mb-12'>
           Jak działają zaproszenia<span className='text-themeBlue'>?</span>
         </SectionTitle>
@@ -92,7 +94,7 @@ const InviteFriends = () => {
             </p>
           </div>
         </HowDoesItWorkItem>
-        <hr className='mb-8' />
+        <hr className='mb-0 md:mb-0 mt-16 md:mt-20' />
       </Section>
 
       <FAQSection />

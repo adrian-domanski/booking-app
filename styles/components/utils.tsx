@@ -39,7 +39,8 @@ export const PageHeader = styled.header<IPageHeader>`
   background-size: cover;
   background-position: center;
   position: relative;
-  min-height: 450px;
+  height: 450px;
+  padding-top: 2rem;
   z-index: 1;
 
   :after {
