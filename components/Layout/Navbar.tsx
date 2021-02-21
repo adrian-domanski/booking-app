@@ -56,7 +56,6 @@ const Navbar = () => {
             </div>
             <div className='hidden lg:block sm:ml-6'>
               <div className='flex space-x-4'>
-                {/* Current: "bg-gray-900 text-white", Default: "text-gray-300 hover:bg-gray-700 hover:text-white" */}
                 <Link href='/'>
                   <MenuLink
                     isActive={pathname === '/'}
@@ -65,8 +64,30 @@ const Navbar = () => {
                     Strona główna
                   </MenuLink>
                 </Link>
-                <MenuLink>Dla właścicieli</MenuLink>
-                <MenuLink>Kontakt</MenuLink>
+                <Link href='/cennik'>
+                  <MenuLink
+                    isActive={pathname === '/cennik'}
+                    isScrolledTop={isScrolledTop}
+                  >
+                    Cennik
+                  </MenuLink>
+                </Link>
+                <Link href='/o-nas'>
+                  <MenuLink
+                    isActive={pathname === '/o-nas'}
+                    isScrolledTop={isScrolledTop}
+                  >
+                    O nas
+                  </MenuLink>
+                </Link>
+                <Link href='/kontakt'>
+                  <MenuLink
+                    isActive={pathname === '/kontakt'}
+                    isScrolledTop={isScrolledTop}
+                  >
+                    Kontakt
+                  </MenuLink>
+                </Link>
                 <MenuLink as='div' className='mr-0' id='admin-menu-trigger'>
                   <i className='far fa-user pr-2' />
                   Admin
@@ -78,27 +99,38 @@ const Navbar = () => {
                     aria-labelledby='admin-menu'
                     id='admin-menu-dropdown'
                   >
-                    <a
-                      href='#'
-                      className='block px-4 py-2 text-sm text-gray-700 hover:bg-gray-100'
-                      role='menuitem'
-                    >
-                      Twój profil
-                    </a>
-                    <a
-                      href='#'
-                      className='block px-4 py-2 text-sm text-gray-700 hover:bg-gray-100'
-                      role='menuitem'
-                    >
-                      Ustawienia
-                    </a>
-                    <a
-                      href='#'
-                      className='block px-4 py-2 text-sm text-gray-700 hover:bg-gray-100'
-                      role='menuitem'
-                    >
-                      Wyloguj
-                    </a>
+                    <Link href='/zapros-znajomych'>
+                      <a
+                        className='block px-4 py-2 text-sm text-gray-700 hover:bg-gray-100'
+                        role='menuitem'
+                      >
+                        Zaproś znajomych
+                      </a>
+                    </Link>
+                    <Link href='/'>
+                      <a
+                        className='block px-4 py-2 text-sm text-gray-700 hover:bg-gray-100'
+                        role='menuitem'
+                      >
+                        Twój profil
+                      </a>
+                    </Link>
+                    <Link href='/'>
+                      <a
+                        className='block px-4 py-2 text-sm text-gray-700 hover:bg-gray-100'
+                        role='menuitem'
+                      >
+                        Ustawienia
+                      </a>
+                    </Link>
+                    <Link href='/'>
+                      <a
+                        className='block px-4 py-2 text-sm text-red-500 hover:bg-gray-100'
+                        role='menuitem'
+                      >
+                        Wyloguj
+                      </a>
+                    </Link>
                   </div>
                 </MenuLink>
               </div>
@@ -159,15 +191,23 @@ const Navbar = () => {
       >
         <div className='px-2 pt-2 pb-3 space-y-1'>
           <Link href='/'>
-            <MenuLink isActive>Strona główna</MenuLink>
+            <MenuLink isActive={pathname === '/'}>Strona główna</MenuLink>
           </Link>
-          <Link href='/'>
-            <MenuLink>Kontakt</MenuLink>
+          <Link href='/o-nas'>
+            <MenuLink isActive={pathname === '/o-nas'}>O nas</MenuLink>
           </Link>
-          <Link href='/'>
-            <MenuLink>O nas</MenuLink>
+          <Link href='/cennik'>
+            <MenuLink isActive={pathname === '/cennik'}>Cennik</MenuLink>
+          </Link>
+          <Link href='/kontakt'>
+            <MenuLink isActive={pathname === '/kontakt'}>Kontakt</MenuLink>
           </Link>
           {/* Admin dropdown */}
+          <Link href='/zapros-znajomych'>
+            <MenuLink isActive={pathname === '/zapros-znajomych'}>
+              Zaproś znajomych
+            </MenuLink>
+          </Link>
           <Link href='/'>
             <MenuLink>Twój profil</MenuLink>
           </Link>

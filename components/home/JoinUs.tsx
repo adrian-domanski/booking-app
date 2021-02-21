@@ -11,7 +11,7 @@ import { JoinUsButton } from '../../styles/pages';
 const JoinUs = () => {
   return (
     <Section className='lg:mt-36'>
-      <SectionTitle className='lg:!text-left'>
+      <SectionTitle className='lg:!ml-0'>
         Dołącz do tysięcy gospodarzy dzięki Gościnni.pl
       </SectionTitle>
       <TitleLine className='lg:!ml-0' />

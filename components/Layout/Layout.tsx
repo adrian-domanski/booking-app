@@ -4,6 +4,8 @@ import Navbar from './Navbar';
 import Head from 'next/head';
 import { createGlobalStyle } from 'styled-components';
 import styled from 'styled-components';
+import gsap from 'gsap';
+import { ScrollTrigger } from 'gsap/dist/ScrollTrigger';
 
 const GlobalStyles = createGlobalStyle`
   * {
@@ -53,6 +55,44 @@ const Layout: React.FC<IProps> = ({
   title = 'Gościnni - Znajdź swoje miejsce',
 }) => {
   const [mouseDown, setMouseDown] = useState(false);
+
+  useEffect(() => {
+    gsap.registerPlugin(ScrollTrigger);
+
+    // Header animations
+    const tl = gsap.timeline({
+      defaults: { duration: 1, ease: 'power3.out' },
+    });
+    tl.from('#g-header > *', {
+      y: 50,
+      opacity: 0,
+      stagger: 0.5,
+    });
+
+    // Title lines
+    gsap.utils.toArray('.g-titleLine').forEach((titleLine: HTMLElement) => {
+      const tl = gsap.timeline({
+        defaults: { duration: 1, transformOrigin: 'center', delay: 0.5 },
+        scrollTrigger: {
+          trigger: titleLine,
+        },
+      });
+      tl.from(titleLine, { opacity: 0, top: 50 });
+    });
+
+    // Section titles
+    gsap.utils
+      .toArray('.g-sectionTitle')
+      .forEach((sectionTitle: HTMLElement) => {
+        const tl = gsap.timeline({
+          defaults: { duration: 1, transformOrigin: 'center' },
+          scrollTrigger: {
+            trigger: sectionTitle,
+          },
+        });
+        tl.from(sectionTitle, { opacity: 0, top: 50 });
+      });
+  }, []);
 
   useEffect(() => {
     document.addEventListener('mousedown', () => {

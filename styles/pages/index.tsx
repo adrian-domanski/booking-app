@@ -19,22 +19,34 @@ export const StyledHeader = styled.header`
 
   .input:focus + .label,
   .input:active + .label,
-  .input.filled + .label {
+  .input.filled + .label,
+  .not-selected-date {
     transition: all 0.2s ease-out;
-    top: -0.1rem;
+    top: -0.6rem !important;
     color: #aaaaaa;
+    font-size: 16px;
+
+    @media screen and (max-width: 1024px) {
+      top: -0.1rem !important;
+    }
   }
 
   .selected-date {
     transition: all 0.2s ease-out;
-    top: -0.1rem !important;
+    top: -0.6rem !important;
     color: #aaaaaa;
+    font-size: 16px !important;
+
+    @media screen and (max-width: 1024px) {
+      top: -0.1rem !important;
+    }
   }
 
   .label {
     transition: all 0.2s ease-out;
     top: 0.6rem;
-    left: 0.67rem;
+    left: 0.8rem;
+    font-size: 1.1rem;
 
     @media screen and (max-width: 1024px) {
       width: 200px;
@@ -49,9 +61,9 @@ export const StyledHeader = styled.header`
   }
 `;
 
-export const FormGroup = tw.div`mb-4 relative lg:mb-0 lg:w-40`;
+export const FormGroup = tw.div`mb-4 relative lg:mb-0 lg:w-40 lg:mt-2`;
 
-export const FormGroupImg = tw.img`absolute -left-6 top-2 hidden lg:block`;
+export const FormGroupImg = tw.img`absolute -left-7 top-2 hidden lg:block`;
 
 interface IInput {
   className?: string;
@@ -59,12 +71,12 @@ interface IInput {
 
 export const Input = styled.input.attrs<IInput>({
   className:
-    'input flex text-center lg:text-left lg:font-bold lg:text-2xl border border-gray-300 lg:border-0 appearance-none rounded w-full px-3 py-3 pt-5 pb-2 focus focus:border-indigo-600 focus:outline-none active:outline-none active:border-indigo-600',
+    'input relative z-index-10 flex text-center lg:text-left lg:font-bold lg:text-2xl border border-gray-300 lg:border-0 appearance-none rounded w-full px-3 py-3 pt-5 lg:pt-3 pb-2 focus focus:border-indigo-600 focus:outline-none active:outline-none active:border-indigo-600',
 })<IInput>``;
 
 export const StyledDatePicker = styled(DatePicker).attrs({
   className:
-    'input cursor-pointer w-full text-center lg:font-bold lg:text-2xl lg:text-left lg:border-0 border border-gray-300 appearance-none rounded w-full px-3 py-3 pt-5 pb-2 focus focus:border-indigo-600 focus:outline-none active:outline-none active:border-indigo-600',
+    'input flex text-center lg:text-left lg:font-bold lg:text-2xl border border-gray-300 lg:border-0 appearance-none rounded w-full px-3 py-3 pt-5 lg:pt-3 pb-2 focus focus:border-indigo-600 focus:outline-none active:outline-none active:border-indigo-600',
 })`
   width: 100% !important;
 `;

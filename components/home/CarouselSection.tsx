@@ -15,7 +15,9 @@ const CarouselSection = () => {
     className: 'center',
     slidesToShow: 4,
     infinite: true,
+    autoplay: true,
     slidesToScroll: 1,
+    autoplaySpeed: 5000,
     centerPadding: '80px',
     responsive: [
       {

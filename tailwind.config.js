@@ -27,8 +27,8 @@ module.exports = {
   },
   variants: {
     extend: {
+      backgroundColor: ['important', 'importantHover'],
       padding: ['important'],
-      backgroundColor: ['important'],
       fontSize: ['important'],
       height: ['important'],
       width: ['important'],
@@ -43,6 +43,7 @@ module.exports = {
       position: ['important'],
       inset: ['important'],
       borderColor: ['important'],
+      borderWidth: ['important'],
     },
   },
   plugins: [
@@ -50,6 +51,16 @@ module.exports = {
       addVariant('important', ({ container }) => {
         container.walkRules((rule) => {
           rule.selector = `.\\!${rule.selector.slice(1)}`;
+          rule.walkDecls((decl) => {
+            decl.important = true;
+          });
+        });
+      });
+    }),
+    plugin(function ({ addVariant }) {
+      addVariant('importantHover', ({ container }) => {
+        container.walkRules((rule) => {
+          rule.selector = `.\\hover\\:\\!${rule.selector.slice(1)}:hover`;
           rule.walkDecls((decl) => {
             decl.important = true;
           });

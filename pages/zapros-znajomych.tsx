@@ -16,7 +16,7 @@ const InviteFriends = () => {
   return (
     <Layout>
       <PageHeader bgUrl='/img/SearchResults/header-bg.jpg'>
-        <Section>
+        <Section id='g-header'>
           <HeaderTitle>
             Zaproś znajomych, by dołączyli
             <br />

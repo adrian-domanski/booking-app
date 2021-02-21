@@ -14,6 +14,7 @@ registerLocale('pl', pl);
 import 'react-datepicker/dist/react-datepicker.css';
 import { Section } from '../../styles/components/utils';
 import Link from 'next/link';
+import gsap from 'gsap';
 
 const Header = () => {
   const [departureDate, setDepartureDate] = useState<string | number | Date>(
@@ -24,6 +25,19 @@ const Header = () => {
   );
   const [city, setCity] = useState('Bieszczady');
   const [guestCount, setGuestCount] = useState('3');
+
+  // Gsap animation
+  useEffect(() => {
+    const tl = gsap.timeline({
+      defaults: { duration: 1, ease: 'power3.out' },
+    });
+
+    tl.from('#searchBar', {
+      opacity: 0,
+      y: 75,
+      delay: 1.6,
+    });
+  }, []);
 
   useEffect(() => {
     var toggleInputContainer = function (input) {
@@ -72,9 +86,11 @@ const Header = () => {
   return (
     <StyledHeader className='py-28 lg:py-40 relative mb-10'>
       <Section>
-        <div className='text-center text-white'>
-          <h1 className='text-4xl md:text-5xl font-bold'>Serdecznie witamy</h1>
-          <h2 className='font-bold text-2xl md:text-3xl'>
+        <div className='text-center text-white' id='g-header'>
+          <h1 className='text-4xl md:text-5xl font-bold tracking-wide'>
+            Serdecznie witamy
+          </h1>
+          <h2 className='font-bold text-3xl md:text-4xl'>
             na portalu Gościnni.pl
           </h2>
           <h3 className='text-center mt-8 opacity-90 md:text-xl lg:my-10'>
@@ -83,16 +99,21 @@ const Header = () => {
           </h3>
         </div>
         <div
-          className='bg-white max-w-5xl mx-auto mt-8 rounded-lg shadow-2xl lg:py-4 lg:px-14 py-8 px-10 flex flex-col mb-12'
+          className='bg-white max-w-lg lg:max-w-5xl mx-auto mt-8 lg:mt-12 rounded-lg shadow-2xl lg:py-4 lg:px-14 py-8 px-10 flex flex-col mb-12'
           id='searchBar'
         >
-          <form className='lg:flex lg:justify-between lg:items-center'>
+          <form
+            className='lg:flex lg:justify-between lg:items-center lg:pl-4'
+            autoComplete='off'
+          >
             <FormGroup>
-              <FormGroupImg
-                src='/img/icons/pin.png'
-                className='absolute'
-                alt='Znacznik'
-              />
+              <label htmlFor='city'>
+                <FormGroupImg
+                  src='/img/icons/pin.png'
+                  className='absolute'
+                  alt='Znacznik'
+                />
+              </label>
               <Input
                 id='city'
                 type='text'
@@ -103,16 +124,19 @@ const Header = () => {
               <Label htmlFor='city'>Gdzie chcesz jechać</Label>
             </FormGroup>
             <FormGroup>
-              <FormGroupImg
-                src='/img/icons/calendar.png'
-                className='absolute !-left-8'
-                alt='Kalendarz'
-              />
+              <label htmlFor='departureDate'>
+                <FormGroupImg
+                  src='/img/icons/calendar.png'
+                  className='absolute !-left-9'
+                  alt='Kalendarz'
+                />
+              </label>
               <StyledDatePicker
                 id='departureDate'
                 type='text'
                 locale='pl'
                 dateFormat='E, dd.MM'
+                autoComplete='off'
                 className={`capitalize ${departureDate ? 'filled' : ''}`}
                 value={departureDate}
                 selected={departureDate}
@@ -120,22 +144,27 @@ const Header = () => {
               />
               <Label
                 htmlFor='departureDate'
-                className={`${departureDate ? 'selected-date' : ''}`}
+                className={`${
+                  departureDate ? 'selected-date' : 'not-selected-date'
+                }`}
               >
                 Data wyjazdu
               </Label>
             </FormGroup>
             <FormGroup>
-              <FormGroupImg
-                src='/img/icons/arrow-left.png'
-                className='absolute !-left-8'
-                alt='Strzałka'
-              />
+              <label htmlFor='arrivalDate'>
+                <FormGroupImg
+                  src='/img/icons/arrow-left.png'
+                  className='absolute !-left-9'
+                  alt='Strzałka'
+                />
+              </label>
               <StyledDatePicker
                 id='arrivalDate'
                 type='text'
                 locale='pl'
                 dateFormat='E, dd.MM'
+                autoComplete='off'
                 className={`capitalize ${arrivalDate ? 'filled' : ''}`}
                 value={arrivalDate}
                 selected={arrivalDate}
@@ -148,16 +177,19 @@ const Header = () => {
                 Data przyjazdu
               </Label>
             </FormGroup>
-            <FormGroup className='lg:!w-24'>
-              <FormGroupImg
-                src='/img/icons/group.png'
-                className='absolute !-left-12'
-                alt='Grupa ludzi'
-              />
+            <FormGroup className='lg:!w-28'>
+              <label htmlFor='guestCount'>
+                <FormGroupImg
+                  src='/img/icons/group.png'
+                  className='absolute !-left-14'
+                  alt='Grupa ludzi'
+                />
+              </label>
               <Input
                 id='guestCount'
                 className={`${guestCount ? 'filled' : ''}`}
                 onChange={handleChange}
+                autoComplete='off'
                 value={guestCount}
                 type='number'
               />
