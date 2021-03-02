@@ -26,7 +26,7 @@ export const StyledHeader = styled.header`
     color: #aaaaaa;
     font-size: 16px;
 
-    @media screen and (max-width: 1024px) {
+    @media screen and (max-width: 1023px) {
       top: -0.1rem !important;
     }
   }
@@ -37,7 +37,7 @@ export const StyledHeader = styled.header`
     color: #aaaaaa;
     font-size: 16px !important;
 
-    @media screen and (max-width: 1024px) {
+    @media screen and (max-width: 1023px) {
       top: -0.1rem !important;
     }
   }
@@ -48,7 +48,7 @@ export const StyledHeader = styled.header`
     left: 0.8rem;
     font-size: 1.1rem;
 
-    @media screen and (max-width: 1024px) {
+    @media screen and (max-width: 1023px) {
       width: 200px;
       text-align: center;
       left: 50%;
@@ -239,7 +239,7 @@ export const PopularPlacesGridItem = styled.div<{ imgSrc: string }>`
   background-position: center;
   border-radius: 10px;
 
-  @media screen and (max-width: 1024px) {
+  @media screen and (max-width: 1023px) {
     height: 275px;
   }
 
