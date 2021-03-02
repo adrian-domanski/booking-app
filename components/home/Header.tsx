@@ -196,11 +196,7 @@ const Header = () => {
               <Label htmlFor='guestCount'>Liczba gości</Label>
             </FormGroup>
             <Link href='/wyniki-wyszukiwania'>
-              <Button
-                as='a'
-                type='submit'
-                className='lg:!w-14 lg:!h-14 lg:!flex cursor-pointer lg:items-center lg:justify-center lg:!rounded-full'
-              >
+              <Button className='lg:!w-14 lg:!h-14 lg:!flex cursor-pointer lg:items-center lg:justify-center lg:!rounded-full'>
                 <span className='lg:hidden'>Szukaj</span>
                 <i className='fas fa-search hidden lg:flex text-3xl'></i>
               </Button>
