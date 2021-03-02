@@ -1,7 +1,7 @@
 import styled from '@emotion/styled';
 import tw from 'twin.macro';
 
-export const ModalInput = tw.input`rounded-md active:shadow-theme shadow-lg transition-all focus:border-theme border-transparent border focus:shadow-theme w-full p-3 pl-12`;
+export const ModalInput = tw.input`rounded-md active:shadow-theme shadow-lg block transition-all focus:border-theme border-transparent border focus:shadow-theme w-full p-3 pl-12`;
 
 export const ModalFormGroup = tw.div`relative mb-4`;
 

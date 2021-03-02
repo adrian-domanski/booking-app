@@ -49,7 +49,7 @@ const LoginModal = () => {
         >
           <div className='lg:border-r lg:pr-8'>
             <i
-              className='fas fa-times block absolute right-8 text-4xl hover:text-gray-400 transition-colors cursor-pointer text-gray-300'
+              className='fas fa-times block absolute right-8 top-6 lg:top-4 text-4xl hover:text-gray-400 transition-colors cursor-pointer text-gray-300'
               onClick={() => dispatch({ type: 'TOGGLE_LOGIN_MODAL' })}
             ></i>
             <ModalTitle>
