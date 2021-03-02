@@ -1,5 +1,6 @@
 import Link from 'next/link';
-import React, { useState } from 'react';
+import React, { useContext, useState } from 'react';
+import { AuthContext } from '../components/context/AuthContext';
 import Layout from '../components/Layout/Layout';
 import PricingFAQ from '../components/Pricing/PricingFAQ';
 import {
@@ -28,6 +29,7 @@ import {
 } from '../styles/pages/Pricing';
 
 const PricingPage = () => {
+  const { dispatch } = useContext(AuthContext);
   const [planType, setPlanType] = useState<'MONTHS' | 'YEARS'>('MONTHS');
 
   const handlePlanTypeChange = () => {
@@ -58,7 +60,10 @@ const PricingPage = () => {
           </Section>
         </PageHeader>
         <Section className='md:!pb-0'>
-          <Button className='!w-auto !table mx-auto px-8 '>
+          <Button
+            className='!w-auto !table mx-auto px-8'
+            onClick={() => dispatch({ type: 'TOGGLE_REGISTER_MODAL' })}
+          >
             Zaloguj się, by ustawić reklamy
           </Button>
           <hr className='mt-14 mb-16' />

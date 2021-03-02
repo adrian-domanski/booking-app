@@ -69,15 +69,14 @@ const FAQSection = () => {
                 </FAQTitle>
               </div>
               <div
-                className={`p-2 text-justify text-gray-800 mb-5 transform transition-transform origin-top ${
-                  isFAQOpened[1] ? 'block' : 'hidden'
+                className={`p-2 text-justify overflow-hidden text-gray-800 max-h-0 mb-5 transform transition-all origin-top ${
+                  isFAQOpened[1] ? 'max-h-36' : '!p-0 !m-0'
                 }`}
               >
                 Lorem, ipsum dolor sit amet consectetur{' '}
                 <span className='font-bold'>adipisicing elit</span>. Mollitia
                 temporibus doloremque non eligendi unde ipsam? Voluptatibus,
-                suscipit deserunt quidem delectus perferendis velit molestias,
-                veritatis officia fugiat cumque quaerat earum adipisci?
+                suscipit deserunt quidem delectus perferendis velit molestias?
               </div>
               <hr />
             </div>
@@ -94,15 +93,14 @@ const FAQSection = () => {
                 </FAQTitle>
               </div>
               <div
-                className={`p-2 text-justify text-gray-800 mb-5 transform transition-transform origin-top ${
-                  isFAQOpened[2] ? 'block' : 'hidden'
+                className={`p-2 text-justify overflow-hidden text-gray-800 max-h-0 mb-5 transform transition-all origin-top ${
+                  isFAQOpened[2] ? 'max-h-36' : '!p-0 !m-0'
                 }`}
               >
                 Lorem, ipsum dolor sit amet consectetur{' '}
                 <span className='font-bold'>adipisicing elit</span>. Mollitia
                 temporibus doloremque non eligendi unde ipsam? Voluptatibus,
-                suscipit deserunt quidem delectus perferendis velit molestias,
-                veritatis officia fugiat cumque quaerat earum adipisci?
+                suscipit deserunt quidem delectus perferendis velit molestias?
               </div>
               <hr />
             </div>
@@ -119,15 +117,14 @@ const FAQSection = () => {
                 </FAQTitle>
               </div>
               <div
-                className={`p-2 text-justify text-gray-800 mb-5 transform transition-transform origin-top ${
-                  isFAQOpened[3] ? 'block' : 'hidden'
+                className={`p-2 text-justify overflow-hidden text-gray-800 max-h-0 mb-5 transform transition-all origin-top ${
+                  isFAQOpened[3] ? 'max-h-36' : '!p-0 !m-0'
                 }`}
               >
                 Lorem, ipsum dolor sit amet consectetur{' '}
                 <span className='font-bold'>adipisicing elit</span>. Mollitia
                 temporibus doloremque non eligendi unde ipsam? Voluptatibus,
-                suscipit deserunt quidem delectus perferendis velit molestias,
-                veritatis officia fugiat cumque quaerat earum adipisci?
+                suscipit deserunt quidem delectus perferendis velit molestias?
               </div>
               <hr />
             </div>

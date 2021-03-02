@@ -13,11 +13,14 @@ module.exports = {
     extend: {
       boxShadow: {
         custom: '0 0 10px -2px #c7c7c7',
+        theme: '0 2px 4px 0 #9f91d8',
       },
       colors: {
         theme: '#9f91d8',
         themeDarker: '#8477bc',
         themeBlue: '#7c72d0',
+        facebookBlue: '#3b5998',
+        googlePlusRed: '#db4a39',
         themeGreen: '#47a64c',
         themeGreenDarker: '#39913d',
         themeBlueDarker: '#59519a',
