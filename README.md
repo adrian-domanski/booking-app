@@ -1,5 +1,5 @@
 
-# It's a booking app where you can find your favorite place for the night ✈️
+## It's a booking app where you can find your favorite place for the night ✈️
 
 ## 💻 What did I use?
 
